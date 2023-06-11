@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent_layout"
+    tools:context=".ui.main.MainFragment"
+    android:background="#edf8f8f8">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginTop="10dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_1"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/linearbackgroundwhite"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_person_24" />
+
+                <com.skydoves.powerspinner.PowerSpinnerView
+                    android:id="@+id/spinnerProfesi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#edf8f8f8"
+
+                    android:hint="Profesi"
+                    android:padding="10dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="17sp"
+
+                    app:spinner_arrow_gravity="end"
+                    app:spinner_arrow_padding="8dp"
+                    app:spinner_arrow_tint="@color/black"
+                    app:spinner_divider_color="@color/black_muda"
+                    app:spinner_divider_show="true"
+                    app:spinner_divider_size="0.4dp"
+                    app:spinner_item_height="100dp"
+
+                    app:spinner_popup_max_height="400dp"
+                    app:spinner_popup_animation="fade"
+                    app:spinner_popup_background="@color/white"
+                    app:spinner_popup_elevation="14dp" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Penghasilan Bruto"
+
+                android:textColor="@color/gray"
+                android:textStyle ="bold"
+                android:id="@+id/textview_penghasilanbruto"
+                android:textSize="17dp" />
+
+            <LinearLayout
+                android:id="@+id/liniearPenghasilan"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/linearbackgroundwhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+
+                        android:id="@+id/imageViewGaji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textViewGaji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Gaji / Tahun"
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        app:fontFamily="sans-serif" />
+
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editTextGaji"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+
+                        android:id="@+id/imageViewPenghasilanDosen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textViewPenghasilanDosen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Penghasilan Dosen / Tahun"
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        app:fontFamily="sans-serif" />
+
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editTextPenghasilanDosen"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPendapatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textViewPendapatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Pendapatan Bonus dll / Tahun"
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        app:fontFamily="sans-serif" />
+
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editTextPendapatan"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPeredaranBruto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textViewPeredaranBruto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Peredaran Bruto / Tahun"
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        app:fontFamily="sans-serif" />
+
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editTextPeredaranBruto"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPenghasilanLainnya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textViewPenghasilanLainnya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Penghasilan Lainnya / Tahun"
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        app:fontFamily="sans-serif" />
+
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editTextPenghasilanLainnya"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Pengurangan"
+                android:textStyle ="bold"
+
+                android:textColor="@color/gray"
+                android:id="@+id/textview_pengurangan"
+                android:textSize="17dp" />
+
+
+            <LinearLayout
+                android:id="@+id/linear_pengurangan"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/linearbackgroundwhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+
+                        android:id="@+id/image_jumlahtanggungan"
+                        android:src="@drawable/ic_baseline_groups_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/textview_jumlahtanggungan"
+                        android:text="Jumlah Tanggungan (Orang)"
+
+                        android:textColor="@color/black"
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+                <EditText
+
+                    android:id="@+id/edittext_tanggungan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:paddingRight="20dp"
+                    android:inputType="number"
+                    android:text ="0"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+
+                        android:id="@+id/image_biayajabatan"
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/textview_biayajabatan"
+                        android:text="Total Biaya Jabatan atau Pensiun / Tahun"
+
+                        android:textColor="@color/black"
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+                <EditText
+
+                    android:id="@+id/edittext_biayajabatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:paddingRight="20dp"
+                    android:inputType="number"
+
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageview_iuranpensiun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textview_iuranpensiun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Iuran Pensiun / Tahun"
+                        android:textColor="@color/black"
+
+
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+                <EditText
+
+                    android:id="@+id/edittext_iuranpensiun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:paddingRight="20dp"
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageviewBiayaUsaha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textviewBiayaUsaha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Biaya Usaha / Tahun"
+                        android:textColor="@color/black"
+
+
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+                <EditText
+
+                    android:id="@+id/edittextBiayaUsaha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:paddingRight="20dp"
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageviewBiayaLainnya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textviewBiayaLainnya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Biaya Lainnya / Tahun"
+                        android:textColor="@color/black"
+
+
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+                <EditText
+
+                    android:id="@+id/edittextBiayaLainnya"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:paddingRight="20dp"
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageviewKreditPajak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+
+                        android:src="@drawable/ic_baseline_money_24" />
+
+                    <TextView
+
+                        android:id="@+id/textviewKreditPajak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Total Kredit Pajak Tahun Pajak dihitung"
+                        android:textColor="@color/black"
+
+
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+                <EditText
+
+                    android:id="@+id/editTextKreditPajak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black_muda"
+                    android:paddingRight="20dp"
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonSimulasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/purple_200"
+            android:contentDescription="@string/app_name"
+            android:padding="4dp"
+            android:src="@drawable/ic_baseline_check_24"
+            app:backgroundTint="@color/blue_1"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/purple_200"
+            android:contentDescription="@string/app_name"
+            android:padding="4dp"
+            android:src="@drawable/ic_baseline_close_24"
+            app:backgroundTint="@color/blue_1"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/purple_200"
+            android:contentDescription="@string/app_name"
+            android:padding="4dp"
+            android:src="@drawable/ic_baseline_save_24"
+            app:backgroundTint="@color/blue_1"
+            app:tint="@color/white" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

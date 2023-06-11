@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "555518573063",
+    "project_id": "simulasi-kredit-376300",
+    "storage_bucket": "simulasi-kredit-376300.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555518573063:android:54603736dbb90d6da988a2",
+        "android_client_info": {
+          "package_name": "com.ukm.simulasikredit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555518573063-b9f7ls9kdn1reukmt94718ljv9qttfe0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ukm.simulasikredit",
+            "certificate_hash": "67459d71e59a07f9ce7f5d1a46a9f02a972cdaa4"
+          }
+        },
+        {
+          "client_id": "555518573063-e9qehs2pjjbcmjhd0kfe7mtrtshtmdq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRJJG2oIgb9DHTN_9FT8fY-pzFHUVIUW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555518573063-e9qehs2pjjbcmjhd0kfe7mtrtshtmdq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

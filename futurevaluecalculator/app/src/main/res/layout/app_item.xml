@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/line_background"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1" />
+    <TextView
+        android:id="@+id/textViewTitle"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+
+        app:layout_constraintTop_toTopOf="parent"
+        android:text = "DEDI JAMALUDIN SURYANA asdasdasdasdsa"
+
+        style="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        style="@style/TextAppearance.AppCompat.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="4"
+        android:padding="10dp"
+
+        android:text="asdasdasd"
+        android:textStyle ="bold"
+        android:textColor="@color/blue_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+if (intent.getIntExtra("tenor",0)!=0){
+                spinnerTenorFixed.selectItemByIndex(intent.getIntExtra("tenor",0)?.toInt() ?: 0)
+            }else{
+                spinnerTenorFixed.selectItemByIndex(
+                    SharedPreferencesTools.getData(this, "spinnerTenorFixedKPR")!!.toInt()
+                )
+
+            }
+
+
+            if (intent.getStringExtra("plafondKredit")!=""){
+                editTextHargaRumah.setText(intent.getStringExtra("plafondKredit"))
+            }else{
+                editTextHargaRumah.setText(
+                    SharedPreferencesTools.getData(
+                        this,
+                        "editTextHargaRumahKPR"
+                    )
+                )
+            }
+			
+			 if (intent.getStringExtra("sukuBunga")!=""){
+                editTextSukuBungaTenorFixed.setText(intent.getStringExtra("sukuBunga"))
+            }else{
+                editTextSukuBungaTenorFixed.setText(SharedPreferencesTools.getData(this, "editTextSukuBungaTenorFixedKPR"))
+
+            }
+                if (intent.getDoubleExtra("sukuBunga",0.0)!=0.0){
+                    editTextSukuBunga.setText(intent.getDoubleExtra("sukuBunga",0.0).toString())
+                }else{
+                    editTextSukuBunga.setText(SharedPreferencesTools.getData(this, "editTextSukuBungaVehicle"))
+
+                }

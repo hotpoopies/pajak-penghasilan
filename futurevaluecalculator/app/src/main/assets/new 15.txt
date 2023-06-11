@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #008aff;
+  color: white;
+}
+
+
+WATERMARK
+
+</style>
+</head>
+<body>
+
+<h1><center>AUTO LOAN bmw x7</center></h1>
+<br/>
+<br/>
+<table style="border:0;border-collapse: collapse; padding: 8px;">
+<tr>
+    <td  style="width: 30%;vertical-align: top; "/>Customer Name</td>
+     <td  style="vertical-align: top;  "/>&nbsp;:&nbsp; </td>
+    <td  style="vertical-align: top;  "/>jhone</td>
+	<td rowspan="10"  style="vertical-align: top;  " >IMAGELOGO</td>
+
+  </tr>
+
+<tr>
+    	<td  style="vertical-align: top;  "/>Price</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>$50,000.00</td>
+
+  </tr>
+  
+ 
+  <tr>
+    	<td  style="vertical-align: top;  "/>Down Payment </td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>3.0 % ($1,500.00)</td>
+
+  </tr>
+<tr>
+    	<td  style="vertical-align: top;  "/>Term </td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>36 Months</td>
+
+  </tr>
+  
+  <tr>
+    	<td  style="vertical-align: top;  "/>Interest Rate</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>8.0 % (Year)</td>
+
+  </tr>
+  
+ <tr>
+    	<td  style="vertical-align: top;  "/>Tax</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>10 % ($5,000.00)</td>
+
+  </tr>
+  
+    <tr>
+    	<td  style="vertical-align: top;  "/>First Installment</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>$1,670.56</td>
+
+  </tr>
+  
+      <tr>
+    	<td  style="vertical-align: top;  "/>Principal</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>$48,500.00</td>
+
+  </tr>
+   
+   
+    
+  <tr>
+    	<td  style="vertical-align: top;  "/>Total Firs Payment</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>$8,170.56 (Down Payment + Tax+ First Installment)</td>
+
+  </tr>
+  
+    <tr>
+    	<td  style="vertical-align: top;  "/>Start Loan</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>05/13/2023</td>
+
+  </tr>
+
+
+
+</table>
+
+<br/>
+<table id="customers">
+  <tr>
+    <th>No</th>
+    <th>Date</th>
+    <th>Principal</th>
+    <th>Interest</th>
+    <th>Payment</th>
+   <th>Balance</th>
+  </tr>
+  <tr><td>1</td><td>2023-06-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$45,805.56</td></tr><tr><td>2</td><td>2023-07-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$44,458.33</td></tr><tr><td>3</td><td>2023-08-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$43,111.11</td></tr><tr><td>4</td><td>2023-09-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$41,763.89</td></tr><tr><td>5</td><td>2023-10-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$40,416.67</td></tr><tr><td>6</td><td>2023-11-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$39,069.44</td></tr><tr><td>7</td><td>2023-12-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$37,722.22</td></tr><tr><td>8</td><td>2024-01-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$36,375.00</td></tr><tr><td>9</td><td>2024-02-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$35,027.78</td></tr><tr><td>10</td><td>2024-03-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$33,680.56</td></tr><tr><td>11</td><td>2024-04-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$32,333.33</td></tr><tr><td>12</td><td>2024-05-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$30,986.11</td></tr><tr><td>13</td><td>2024-06-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$29,638.89</td></tr><tr><td>14</td><td>2024-07-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$28,291.67</td></tr><tr><td>15</td><td>2024-08-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$26,944.44</td></tr><tr><td>16</td><td>2024-09-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$25,597.22</td></tr><tr><td>17</td><td>2024-10-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$24,250.00</td></tr><tr><td>18</td><td>2024-11-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$22,902.78</td></tr><tr><td>19</td><td>2024-12-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$21,555.56</td></tr><tr><td>20</td><td>2025-01-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$20,208.33</td></tr><tr><td>21</td><td>2025-02-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$18,861.11</td></tr><tr><td>22</td><td>2025-03-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$17,513.89</td></tr><tr><td>23</td><td>2025-04-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$16,166.67</td></tr><tr><td>24</td><td>2025-05-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$14,819.44</td></tr><tr><td>25</td><td>2025-06-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$13,472.22</td></tr><tr><td>26</td><td>2025-07-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$12,125.00</td></tr><tr><td>27</td><td>2025-08-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$10,777.78</td></tr><tr><td>28</td><td>2025-09-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$9,430.56</td></tr><tr><td>29</td><td>2025-10-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$8,083.33</td></tr><tr><td>30</td><td>2025-11-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$6,736.11</td></tr><tr><td>31</td><td>2025-12-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$5,388.89</td></tr><tr><td>32</td><td>2026-01-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$4,041.67</td></tr><tr><td>33</td><td>2026-02-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$2,694.44</td></tr><tr><td>34</td><td>2026-03-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$1,347.22</td></tr><tr><td>35</td><td>2026-04-13</td><td>$1,347.22</td><td>$323.33</td><td>$1,670.56</td><td>$0.00</td></tr>
+    <tr>
+    <th colspan="2" >TOTAL</th>
+    <th>$47,152.78</th>
+    <th>$11,316.67</th>
+    <th>$58,469.44</th>
+   <th>0,00</th>
+  </tr>
+</table>
+<table style=" border:0; padding: 8px; width: 100%;">
+<tr>
+	
+	<td style="vertical-align: top;" ><br/><h2><label  style="top; padding-right:10%;display: block;text-align: center;">TEMPATTTDTANGGALTTD</label></h2></td>
+	<td style="width: 80%;"></td>
+
+  </tr>
+  <tr>
+  
+	<td style="vertical-align: top;" ><br/><br/><h2><label style="top; padding-right:10%;display: block;text-align: center;">NAMATTD</label></h2></td>
+	<td style="width: 80%;"</td>
+
+  </tr>
+  
+ </table>
+
+</body>
+</html>
+
+

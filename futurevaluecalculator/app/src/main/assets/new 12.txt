@@ -1,0 +1,270 @@
+  listCurrencies.add(ParameterModel("","","CURRENCY"))
+
+
+        listCurrencies.add(ParameterModel("Albanian (Albania)" ,"en-AL","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Afrikaans (South Africa)","en-ZA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (U.A.E.)","en-AE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Bahrain)","en-BH","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Algeria)","en-DZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Egypt)","en-EG","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Iraq)","en-IQ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Jordan)","en-JO","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Kuwait)","en-KW","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Lebanon)","en-LB","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Libya)","en-LY","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Morocco)","en-MA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Oman)","en-OM","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Qatar)","aen-QA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Saudi Arabia)","en-SA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Syria)","en-SY","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Tunisia)","en-TN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Arabic (Yemen)","en-YE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Armenian (Armenia)","hy-AM","CURRENCY"))
+
+
+        listCurrencies.add(ParameterModel("Azeri (Latin) (Azerbaijan)","az-AZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Azeri (Cyrillic) (Azerbaijan)","az-AZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Basque (Spain)","eu-ES","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Belarusian (Belarus)","be-BY","CURRENCY"))
+
+
+        listCurrencies.add(ParameterModel("Bulgarian (Bulgaria)","bg-BG","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Bosnian (Bosnia and Herzegovina)","bs-BA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Catalan (Spain)","ca-ES","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Chinese (S)","zh-CN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Chinese (Hong Kong)","zh-HK","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Chinese (Macau)","zh-MO","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Chinese (Singapore)","zh-SG","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Chinese (T)","zh-TW","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Croatian (Bosnia and Herzegovina)","hr-BA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Croatian (Croatia)","hr-HR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Czech (Czech Republic)","cs-CZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Danish (Denmark)","da-DK","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Divehi (Maldives)","dv-MV","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Dutch (Belgium)","nl-BE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Dutch (Netherlands)","nl-NL","CURRENCY"))
+
+
+        listCurrencies.add(ParameterModel("English (Australia)","en-AU","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Belize)","en-BZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Canada)","en-CA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Caribbean)","en-CB","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (United Kingdom)","en-GB","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Ireland)","en-IE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Jamaica)","en-JM","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (New Zealand)","en-NZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Republic of the Philippines)","en-PH","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Trinidad and Tobago)","en-TT","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (United States)","en-US","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (South Africa)","en-ZA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("English (Zimbabwe)","en-ZW","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Estonian (Estonia)","et-EE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Farsi (Iran)","en-IR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Finnish (Finland)","fi-FI","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Faroese (Faroe Islands)","fo-FO","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("French (Belgium)","fr-BE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("French (Canada)","fr-CA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("French (Switzerland)","fr-CH","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("French (France)","fr-FR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("French (Luxembourg)","fr-LU","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("French (Principality of Monaco)","fr-MC","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("FYRO Macedonian (Former Yugoslav Republic of Macedonia)","mk-MK","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Galician (Spain)","gl-ES","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("German (Austria)","de-AT","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("German (Switzerland)","de-CH","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("German (Germany)","de-DE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("German (Liechtenstein)","de-LI","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("German (Luxembourg)","de-LU","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Gujarati (India)","gu-IN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Greek (Greece)","el-GR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Georgian (Georgia)","ka-GE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Hebrew (Israel)","he-IL","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Hindi (India)","hi-IN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Hungarian (Hungary)","hu-HU","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Indonesian (Indonesia)","id-ID","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Icelandic (Iceland)","is-IS","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Italian (Switzerland)","it-CH","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Italian (Italy)","it-IT","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Japanese (Japan)","ja-JP","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Kazakh (Kazakhstan)","kk-KZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Kannada (India)","kn-IN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Korean (Korea)","ko-KR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Konkani (India)","kok-IN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Kyrgyz (Kyrgyzstan)","ky-KG","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Lithuanian (Lithuania)","lt-LT","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Latvian (Latvia)","lv-LV","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Maori (New Zealand)","mi-NZ","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Mongolian (Mongolia)","mn-MN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Marathi (India)","mr-IN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Malay (Brunei Darussalam)","ms-BN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Malay (Malaysia)","ms-MY","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Maltese (Malta)","mt-MT","CURRENCY"))
+
+
+        listCurrencies.add(ParameterModel("Norwegian (Bokm?l) (Norway)","nb-NO","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Norwegian (Nynorsk) (Norway)","nn-NO","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Northern Sotho (South Africa)","ns-ZA","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Punjabi (India)","pa-IN","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Polish (Poland)","pl-PL","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Pashto (Afghanistan)","ps-AR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Portuguese (Brazil)","pt-BR","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Portuguese (Portugal)","pt-PT","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Quechua (Bolivia)","qu-BO","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Quechua (Ecuador)","qu-EC","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Quechua (Peru)","qu-PE","CURRENCY"))
+
+        listCurrencies.add(ParameterModel("Romanian (Romania)","ro-RO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Russian (Russia)","ru-RU","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sanskrit (India)","sa-IN","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Northern) (Finland)","se-FI","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Skolt) (Finland)","se-FI","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Inari) (Finland)","se-FI","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Northern) (Norway)","se-NO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Lule) (Norway)","se-NO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Southern) (Norway)","se-NO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Northern) (Sweden)","se-SE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Lule) (Sweden)","se-SE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Sami (Southern) (Sweden)","se-SE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Slovak (Slovakia)","sk-SK","CURRENCY"))
+        listCurrencies.add(ParameterModel("Slovenian (Slovenia)","sl-SI","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Argentina)","es-AR","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Bolivia)","es-BO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Chile)","es-CL","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Colombia)","es-CO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Costa Rica)","es-CR","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Dominican Republic)","es-DO","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Ecuador)","es-EC","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Castilian)","es-ES","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Spain)","es-ES","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Guatemala)","es-GT","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Honduras)","es-HN","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Mexico)","es-MX","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Nicaragua)","es-NI","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Panama)","es-PA","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Peru)","es-PE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Puerto Rico)","es-PR","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Paraguay)","es-PY","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (El Salvador)","es-SV","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Uruguay)","es-UY","CURRENCY"))
+        listCurrencies.add(ParameterModel("Spanish (Venezuela)","es-VE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Serbian (Latin) (Bosnia and Herzegovina)","sr-BA","CURRENCY"))
+        listCurrencies.add(ParameterModel("Serbian (Cyrillic) (Bosnia and Herzegovina)","sr-BA","CURRENCY"))
+        listCurrencies.add(ParameterModel("Serbian (Latin) (Serbia and Montenegro)","sr-SP","CURRENCY"))
+        listCurrencies.add(ParameterModel("Serbian (Cyrillic) (Serbia and Montenegro)","sr-SP","CURRENCY"))
+        listCurrencies.add(ParameterModel("Swedish (Finland)","sv-FI","CURRENCY"))
+        listCurrencies.add(ParameterModel("Swedish (Sweden)","sv-SE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Swahili (Kenya)","sw-KE","CURRENCY"))
+        listCurrencies.add(ParameterModel("Syriac (Syria)","syr-SY","CURRENCY"))
+        listCurrencies.add(ParameterModel("Tamil (India)","ta-IN","CURRENCY"))
+        listCurrencies.add(ParameterModel("Telugu (India)","te-IN","CURRENCY"))
+        listCurrencies.add(ParameterModel("Thai (Thailand)","th-TH","CURRENCY"))
+        listCurrencies.add(ParameterModel("Tagalog (Philippines)","tl-PH","CURRENCY"))
+        listCurrencies.add(ParameterModel("Tswana (South Africa)","tn-ZA","CURRENCY"))
+        listCurrencies.add(ParameterModel("Turkish (Turkey)","tr-TR","CURRENCY"))
+        listCurrencies.add(ParameterModel("Tatar (Russia)","tt-RU","CURRENCY"))
+        listCurrencies.add(ParameterModel("Ukrainian (Ukraine)","uk-UA","CURRENCY"))
+        listCurrencies.add(ParameterModel("Urdu (Islamic Republic of Pakistan)","ur-PK","CURRENCY"))
+        listCurrencies.add(ParameterModel("Uzbek (Latin) (Uzbekistan)","uz-UZ","CURRENCY"))
+        listCurrencies.add(ParameterModel("Uzbek (Cyrillic) (Uzbekistan)","uz-UZ","CURRENCY"))
+        listCurrencies.add(ParameterModel("Vietnamese (Viet Nam)","vi-VN","CURRENCY"))
+        listCurrencies.add(ParameterModel("Welsh (United Kingdom)","cy-GB","CURRENCY"))
+        listCurrencies.add(ParameterModel("Xhosa (South Africa)","xh-ZA","CURRENCY"))
+        listCurrencies.add(ParameterModel("Zulu (South Africa)","zu-ZA","CURRENCY"))

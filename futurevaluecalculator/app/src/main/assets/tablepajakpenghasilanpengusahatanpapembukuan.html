@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #008aff;
+  color: #ffffff;
+}
+
+
+
+WATERMARK
+
+
+</style>
+</head>
+<body>
+
+<center><h1>TABEL PAJAK PENGHASILAN</h1></center>
+<br/>
+<br/>
+<table style="border:0;border-collapse: collapse; padding: 8px;width: 100%;">
+
+<tr>
+    	<td  style="width: 30%;vertical-align: top; "/>Total Penghasilan Bruto</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>PEREDARANBRUTO</td>
+		<td rowspan="6"  style="vertical-align: top;  " ></td>
+
+  </tr>
+
+  
+  
+  <tr>
+    	<td  style="vertical-align: top;  "/>Jumlah Tanggungan (Orang)</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>TANGGUNGAN</td>
+
+  </tr>
+  
+   <tr>
+    	<td  style="vertical-align: top;  "/>Total Kredit Pajak</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>KREDITPAJAK</td>
+
+  </tr>
+  
+   <tr>
+    	<td  style="vertical-align: top;  "/>Pendapatan Tidak Kena Pajak</td>
+        <td  style="vertical-align: top;  "/>&nbsp;:&nbsp;</td>
+    
+    	<td  style="vertical-align: top;  "/>PTKP</td>
+
+  </tr>
+  
+  
+
+
+
+
+
+
+</table>
+
+<br/>
+
+
+
+<table id="customers">
+  <tr>
+
+    <th>Keterangan</th>
+    <th>Jumlah</th>
+    
+  </tr>
+  
+   <tr>
+
+    <td  style="vertical-align: top;  "/>Total Pendapatan</td>
+    <td  style="vertical-align: top;  "/>TOTALPENDAPATAN</td>
+    
+  </tr>
+  
+  <tr>
+
+    <td  style="vertical-align: top;  "/>Total Pengurangan</td>
+    <td  style="vertical-align: top;  "/>TOTALPENGURANGAN</td>
+    
+  </tr>
+  <tr>
+
+    <td  style="vertical-align: top;  "/>Norma Perhitungan NORMAPERSEN %</td>
+    <td  style="vertical-align: top;  "/>NORMA</td>
+    
+  </tr>
+   <tr>
+
+    <td  style="vertical-align: top;  "/>Pendapatan Kena Pajak tier 1 Rp0 – Rp60.000.000/tahun (5%)</td>
+    <td  style="vertical-align: top;  "/>TIER1</td>
+    
+  </tr>
+  
+  
+   <tr>
+
+    <td  style="vertical-align: top;  "/>Pendapatan Kena Pajak tier 2 Rp60.000.000 – Rp250.000.000/tahun (15%)</td>
+    <td  style="vertical-align: top;  "/>TIER2</td>
+    
+  </tr>
+  
+  
+   <tr>
+
+    <td  style="vertical-align: top;  "/>Pendapatan Kena Pajak tier 3 Rp250.000.000 – Rp500.000.000/tahun(25%)</td>
+    <td  style="vertical-align: top;  "/>TIER3</td>
+    
+  </tr>
+  
+  
+   <tr>
+
+    <td  style="vertical-align: top;  "/>Pendapatan Kena Pajak tier 4 Rp500.000.000 – Rp5.000.000.000/tahun (30%)</td>
+    <td  style="vertical-align: top;  "/>TIER4</td>
+    
+  </tr>
+  
+  
+   <tr>
+
+    <td  style="vertical-align: top;  "/>Pendapatan Kena Pajak tier 5 di atas Rp5.000.000.000/tahun (35%)</td>
+    <td  style="vertical-align: top;  "/>TIER5</td>
+    
+  </tr>
+  
+  <tr>
+
+    <th>Total Pendapatan Kena Pajak</th>
+    <th>TOTALKENAPAJAK</th>
+    
+  </tr>
+  <tr>
+
+    <td  style="vertical-align: top;  "/></td>
+    <td  style="vertical-align: top;  "/></td>
+    
+  </tr>
+  
+  <tr>
+
+    <th>Pajak Terhutang</th>
+    <th>PAJAKTERHUTANG</th>
+    
+  </tr>
+  <tr>
+
+    <th>Total Pajak</th>
+    <th>TOTALPAJAK</th>
+    
+  </tr>
+ 
+ 
+</table>
+<br/>
+<br/>
+*Total Pendapatan = Total Penghasilan Bruto
+<br/>
+<br/>
+
+*Total Pengurangan = (Total Pendapatan Tidak Kena Pajak) 
+<br/>
+<br/>
+*Total Pendapatan Kena Pajak = (Total Pendapatan X NORMAPERSEN% ) -Total Pengurangan
+<br/>
+<br/>
+*Total Pajak = Pajak Terhutang - Total Kredit Pajak
+<br/>
+<br/>
+
+*)Disclaimer
+<br/>
+<br/>
+
+Hasil perhitungan pajak penghasilan merupakan estimasi perhitungan pajak terhutang bukan hasil pajak terhutang sebenarnya. silahkan konsultasikan ke dirjen pajak untuk hasil pajak terhutang yang final
+
+
+</body>
+</html>
+
+

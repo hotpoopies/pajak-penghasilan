@@ -1,0 +1,103 @@
+Privacy and Security Policy for Time Value Of Money Applications
+ 
+The following are policies and practices carried out by the Time Value Of Money Application to demonstrate the Time Value Of Money application's commitment to maintaining and maintaining your privacy and security when you visit the Time Value Of Money application.
+
+Privacy Policy
+
+the Time Value Of Money application will maintain the confidentiality of all transaction information that you make on the Time Value Of Money application site in accordance with applicable legal provisions in Indonesia and the internal policies of the Time Value Of Money application
+the Time Value Of Money application will trace the originating user connection for investigation needs. the Time Value Of Money application will use a cookie that expires when you log out. All information on transactions on the Time Value Of Money application site that you make will be recorded and kept confidential in accordance with the provisions of law in force in Indonesia and the internal policies of the Time Value Of Money application.
+
+I. Security
+
+The Time Value Of Money application security system uses 3 (three) layers of security systems to protect your access and transactions on the Time Value Of Money application site, namely:
+Secure Sockets Layer ("SSL")
+SSL is a security technology that 'scrambles' communication lines between computers so that they cannot be read by other parties.
+
+Time Value Of Money Application Communication Protection
+
+The Time Value Of Money application uses 2048-bit EV SSL encryption technology to protect communication between your computer and the Time Value Of Money application server while you access the Time Value Of Money application.
+
+To ensure communication protection while you access the Time Value Of Money application, you can do the following:
+Check the SSL certificate regularly to ensure that you receive a valid SSL certificate that has been registered for https://timevalueofmoney.anvil.app/
+If you receive a message explaining that the certificate is invalid, you are advised not to continue accessing the Time Value Of Money application site.
+Make sure that your browser has:
+a lock/key image indicating that the page you are currently accessing is encrypted using SSL. If you do not see a lock/key image, you are advised not to continue accessing the Time Value Of Money application site and make sure the Time Value Of Money application site address is correct.
+The address bar is green (if using the latest version of the browser that is compatible with EV SSL). If the address bar is red, you are advised not to continue accessing the Time Value Of Money application site.
+Make sure that you have typed the correct address, namely https://timevalueofmoney.anvil.app/ or through the Time Value Of Money application link at https://timevalueofmoney.anvil.app/ or through the merchant site that has collaborated with the Simulation application Credit.
+Make sure that you are logged out when you leave your computer even for a moment.
+You should not access the Time Value Of Money application site from an internet cafe or network whose security is uncertain.
+
+II. Email Address and Transaction Information Protection
+
+You are required to provide your email address to the Time Value Of Money application if you register as a credit sales and premium user. The Time Value Of Money application will use your email address to send information on online shopping transactions that you have made through the Time Value Of Money application and several other transactions, including when you first log in, adding/removing payment types. In addition, you agree that the Time Value Of Money application may also use your email address for promotional purposes, invitations to gatherings and delivery of other information.
+
+To ensure the protection of sending information to your e-mail address, please do the following:
+Give the Time Value Of Money application your correct personal e-mail address. Do not use fake e-mail addresses.
+Close your Time Value Of Money application if you change your e-mail address.
+If you contact the Time Value Of Money application via e-mail, do not send your account information that is confidential or sensitive, including your activation code, PIN or OTP.
+
+Time Value Of Money application site
+
+On the Time Value Of Money application site, the Time Value Of Money application may provide URL links to other sites that are not controlled by the Time Value Of Money application. the Time Value Of Money application is not responsible for the content and security of these other sites. If you access the site, please check the privacy and security policies of the site in question.
+In the event that you access the Time Value Of Money application site via a URL link from a merchant site that has collaborated with the Time Value Of Money application, make sure the address you are accessing is correct, namely https://timevalueofmoney.anvil.app/ Simulation Credit.com or via the Simulation application link Credit at www.click the Time Value Of Money application.com
+
+the Time Value Of Money application can change this Privacy and Security Policy at any time to suit the situation and the latest technology. You can always review the latest information and privacy policy for the Time Value Of Money application at https://timevalueofmoney.anvil.app/ or you can request it by sending an e-mail to simulasikreditapp@gmail..
+
+III. Tips for using the Time Value Of Money application more safely
+
+Basically, the Time Value Of Money application system and network has used the optimal security. Security conditions for the Time Value Of Money application are always monitored and improved in line with technological developments and threats.
+
+Threats are also experienced by all internet users, including Time Value Of Money applications. Therefore the Time Value Of Money application requests your attention as a user of the Time Value Of Money application for several types of threats that you may encounter when accessing the internet. Security tips that can be done when you use the Time Value Of Money application are as follows:
+
+Phishing
+
+Phishing is fraudulent methods used by certain parties to obtain confidential customer information such as email addresses, Passwords, Activation Codes and OTP codes. There are several ways that are used, among others:
+Create a fake site that has an address and appearance similar to the official Time Value Of Money application website or Time Value Of Money application merchant site.
+Send a URL link to a site that is made as similar as possible to the official Time Value Of Money application website or Time Value Of Money application merchant site but turns out to be fake.
+Sending emails or messages containing URL links or login screens and asking you to log in by entering your email address, Password, Activation Code and OTP code.
+Claiming to be an employee of the Time Value Of Money application and requesting your data for certain reasons.
+
+Safety tips:
+
+Make sure you access the Time Value Of Money application through the official address of the Time Value Of Money application website at https://timevalueofmoney.anvil.app/. To avoid mistakes in writing the site address for the Time Value Of Money application, save the site address in the favorites or bookmarks menu, so that in the future if you want to access the Time Value Of Money application, simply select it from the favorites or bookmarks menu.
+Make sure you shop only at Time Value Of Money application merchants. The name and address of the Time Value Of Money application merchant site can be seen on the Merchant menu/Merchant List on the Time Value Of Money application site.
+
+Make sure that you are logged out when you leave your computer even for a moment.
+You should not access the Time Value Of Money application in internet cafes or networks where the security cannot be ensured.
+Never access the Time Value Of Money application merchant site or Time Value Of Money application site via a link sent from email, SMS or other means. Please note that the Time Value Of Money application never sends emails as described above to customers.
+Never share the OTP code with other people, even employees of the Time Value Of Money application. Beware of fraudulent attempts from persons who say they are employees of the Time Value Of Money application by telephone, facsimile, email, SMS, or other means that ask for personal data, including the Time Value Of Money application password or OTP code, because the Time Value Of Money application employee will not request or ask for this .
+If you receive such an email, telephone or SMS that appears to have come from the Time Value Of Money application, please forward the email to simulasikreditapp@gmail.com. If you have already filled in the requested information or feel that your Time Value Of Money application account and password are known by other parties, immediately contact the Time Value Of Money application at simulasikreditapp@gmail.com from your cellphone.
+
+Viruses / Worms
+Computer viruses are computer programs created for specific purposes. In general, viruses damage the operating system, applications and data on infected computers. Viruses can spread through many media, including: e-mail, floppy disks, CDs, USB drives, flash memory, programs from the internet and networks, as well as from 'evil' web pages.
+Some examples of the impact of a viral infection:
+The computer becomes unstable and often 'hangs' (hangs).
+Computer becomes slow.
+The data on the hard drive is deleted.
+The application program cannot be used.
+
+Similar to a virus is a worm that is made to be able to spread quickly to many computers. Although generally worms do not cause damage like viruses, worms can be used to carry various kinds of payloads/attachments including dangerous ones.
+
+Safety tips:
+Use the most updated antivirus on your computer, and ensure that your computer is scanned in real time.
+Many viruses enter via email received, so you have to be more careful when using email. Delete suspicious e-mails or those that come from unknown senders, and scan e-mail attachments before opening.
+Use a firewall on the operating system on your computer or install a personal firewall and ensure that the installed firewall settings can secure your Personal Computer (PC).
+You should not access or even download files/programs on the internet from sites that you don't know/can't be sure of their legitimacy.
+Scan files that come from diskettes, CDs or USB drives that you receive.
+Make sure that the operating system and applications on your computer are protected with the latest protection system.
+
+
+malware/spyware
+Malware/spyware is a type of computer program programmed to 'steal' important/personal information from an infected computer and send it to a specific location on the internet for later to be retrieved by the manufacturer. Information that is the main target is for example credit card numbers, User IDs and PINs/passwords, account numbers, e-mail addresses, and so on.
+Malware/spyware can be installed via email attachments or programs installed from unknown sources, or by 'malicious' sites.
+Viruses can be programmed to spread malware/spyware. However, in contrast to viruses which are more destructive in nature, spyware works silently so that it is not tracked so that it is easier to collect the information desired by the creator/spreader of the malware/spyware.
+
+Safety tips:
+Security against malware/spyware is the same as protection against viruses/worms.
+
+Bots (robots)
+A bot is a kind of computer program which, when installed on your PC, can cause your PC to be controlled by other people remotely over a network. The Bot maker/spreader will be able to do anything with your PC.
+In general, controlled PCs (known as botnets) are used to send SPAM, viruses, worms or to attack other computers connected to the network.
+
+Safety tips:
+Security for bots is the same as protection against viruses/worms.

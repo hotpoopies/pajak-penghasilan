@@ -1,0 +1,1574 @@
+package com.ukm.simulasikredit
+
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.content.Context
+import android.graphics.Color
+import android.os.Build
+import android.os.Bundle
+import android.util.Log
+import android.view.MenuItem
+import android.view.View
+import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.maniac.motionloader.MotionProgressLoaderView
+import com.skydoves.powerspinner.PowerSpinnerView
+import com.ukm.simulasikredit.databinding.HomeLoanSimulationActivityBinding
+import com.ukm.simulasikredit.models.ParameterModel
+import com.ukm.simulasikredit.tools.ActivityTools
+import com.ukm.simulasikredit.tools.GeneralTools
+import com.ukm.simulasikredit.tools.MoneyTextWatcher
+import com.ukm.simulasikredit.tools.SharedPreferencesTools
+import java.math.BigDecimal
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+
+
+class HomeLoanSimulationActivity : AppCompatActivity() {
+
+
+    private var validasi: Boolean = true
+    private lateinit var binding: HomeLoanSimulationActivityBinding
+
+    private lateinit var spinnerTipeSimulasi: PowerSpinnerView
+    private lateinit var spinnerJenisKredit: PowerSpinnerView
+    private lateinit var spinnerDp: PowerSpinnerView
+    private lateinit var spinnerTenorFixed: PowerSpinnerView
+    private lateinit var spinnerTenorFloating: PowerSpinnerView
+
+    private var flagTipeSimulasi: Boolean = false
+    private var flagJenisKredit: Boolean = false
+
+    private var flagTenorFixed: Boolean = false
+    private var flagTenorFloating: Boolean = false
+    private var flagDP: Boolean = false
+
+    private lateinit var listTipeSimulasi: ArrayList<ParameterModel>
+    private lateinit var listJenisKredit: ArrayList<ParameterModel>
+    private lateinit var listSukuBunga: ArrayList<ParameterModel>
+    private lateinit var listDP: ArrayList<ParameterModel>
+    private lateinit var listTenorFixed: ArrayList<ParameterModel>
+
+    private lateinit var listTenorFloating: ArrayList<ParameterModel>
+
+
+
+    private lateinit var editTextHargaRumah: EditText
+    private lateinit var editTextDP: EditText
+    private lateinit var editTextAdministrasi: EditText
+    private lateinit var editTextNamaNasabah: EditText
+    private lateinit var editTextTanggalMulaiKredit: EditText
+    private lateinit var editTextPPN: EditText
+    private lateinit var editTextBiayaNotaris: EditText
+    private lateinit var editTextPremiAsuransiJiwa: EditText
+    private lateinit var editTextPremiAsuransiPasangan: EditText
+    private lateinit var editTextPremiAsuransiKerugian: EditText
+
+    private lateinit var editTextSukuBungaTenorFixed: EditText
+    private lateinit var editTextSukuBungaTenorFloating: EditText
+
+
+    private lateinit var textViewNamaNasabah: TextView
+    private lateinit var textViewAdministrasi: TextView
+    private lateinit var textViewKredit: TextView
+    private lateinit var textViewLainLain: TextView
+    private lateinit var textViewHargaRumah: TextView
+    private lateinit var textViewRumah: TextView
+    private lateinit var textViewSukuBungaTenorFloating: TextView
+    private lateinit var textViewPPN: TextView
+    private lateinit var textViewTanggalMulaiKredit: TextView
+    private lateinit var textViewPremiAsuransiJiwa: TextView
+    private lateinit var textViewPremiAsuransiJiwaPasanga: TextView
+    private lateinit var textViewPremiAsuransiJiwaKerugian: TextView
+    private lateinit var textViewBiayaNotaris: TextView
+
+    private lateinit var imageTipeSimulasi: ImageView
+    private lateinit var imageNamaNasabah: ImageView
+    private lateinit var imageTanggalMulaiKredit: ImageView
+    private lateinit var imageHargaRumah: ImageView
+    private lateinit var imageJenisKredit: ImageView
+    private lateinit var imageDp: ImageView
+    private lateinit var imageTenor: ImageView
+    private lateinit var imageSukuBungaTenorFloating: ImageView
+    private lateinit var imageTenorFixed: ImageView
+    private lateinit var imageTenorFloating: ImageView
+    private lateinit var imagePremiAsuransiJiwa: ImageView
+    private lateinit var imagePremiAsuransiJiwaPasangan: ImageView
+    private lateinit var imagePremiAsuransiKerugian: ImageView
+    private lateinit var imageBiayaNotaris: ImageView
+    private lateinit var imageAdministrasi: ImageView
+
+    private lateinit var linierAsuransi: LinearLayout
+    private lateinit var linierLainLain: LinearLayout
+    private lateinit var linierKredit: LinearLayout
+
+
+    private lateinit var linierMotor: LinearLayout
+
+    private lateinit var context: Context
+
+
+    private var current: String = ""
+
+
+    private var motionProgressLoaderView: MotionProgressLoaderView? = null
+
+
+    private fun buildProgressLoader() {
+        motionProgressLoaderView = MotionProgressLoaderView.Builder(this)
+            .setLottieAsset(R.raw.lol)
+            .setStayInLoop(true)
+            .build()
+    }
+    override fun onStop() {
+        // call the superclass method first
+        super.onStop()
+
+
+        motionProgressLoaderView?.stopLoader()
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun bindings() {
+        textViewNamaNasabah = binding.textviewNamanasabah
+        textViewAdministrasi = binding.textviewAdministrasi
+        textViewKredit = binding.textviewKredit
+        textViewLainLain = binding.textviewLainlain
+        textViewTanggalMulaiKredit = binding.textviewTanggalmulaikredit
+        textViewHargaRumah = binding.textviewHargarumah
+        textViewRumah = binding.textviewRumah
+        textViewPPN = binding.textviewTax
+        textViewPremiAsuransiJiwa = binding.textviewPremiasuransijiwa
+        textViewPremiAsuransiJiwaPasanga = binding.textviewPremiasuransipasangan
+        textViewPremiAsuransiJiwaKerugian = binding.textviewPremiasuransikerugian
+        textViewBiayaNotaris = binding.textviewBiayanotaris
+        textViewSukuBungaTenorFloating = binding.textviewSukubungatenorfloating
+
+        editTextDP = binding.edittextDp
+        editTextAdministrasi = binding.edittextAdministrasi
+        editTextNamaNasabah = binding.editNasabah
+        editTextTanggalMulaiKredit = binding.edittextTanggalmulaikredit
+        editTextPPN = binding.edittextTax
+
+        editTextNamaNasabah.setText(SharedPreferencesTools.getData(this,"name"))
+        editTextBiayaNotaris = binding.edittextBiayanotaris
+        editTextHargaRumah = binding.edittextHargarumah
+        editTextPremiAsuransiJiwa = binding.edittextPremiasuransijiwa
+        editTextPremiAsuransiPasangan = binding.edittextPremiasuransipasangan
+        editTextPremiAsuransiKerugian = binding.edittextPremiasuransikerugian
+
+        editTextSukuBungaTenorFixed = binding.edittextSukubungatenorfixed
+        editTextSukuBungaTenorFloating = binding.edittextSukubungatenorfloating
+
+
+
+        spinnerTipeSimulasi = binding.spinnerSimulationtype
+        spinnerJenisKredit = binding.spinnerJeniskredit
+
+
+        spinnerDp = binding.spinnerDp
+        spinnerTenorFixed = binding.spinnerTenorFixed
+        spinnerTenorFloating = binding.spinnerTenorFloating
+
+        imageTipeSimulasi = binding.imageTipesimulasi
+        imageNamaNasabah = binding.imageNamanasabah
+        imageTanggalMulaiKredit = binding.imageTanggalmulaikredit
+        imageDp = binding.imageDp
+        imageSukuBungaTenorFloating = binding.imageSukubungatenorfloating
+        imageAdministrasi = binding.imageAdministrasi
+        imageTenorFixed = binding.imageTenorfixed
+        imageTenorFloating = binding.imageTenorFloating
+        imagePremiAsuransiJiwa = binding.imagePremiasuransijiwa
+        imagePremiAsuransiJiwaPasangan = binding.imagePremiasuransijiwapasangan
+        imagePremiAsuransiKerugian = binding.imagePremiasuransikerugian
+        imageBiayaNotaris = binding.imageBiayanotaris
+        imageHargaRumah = binding.imageHargarumah
+
+        linierAsuransi = binding.linearAsuransi
+        linierLainLain = binding.linearLainlain
+        linierKredit = binding.linearKredit
+
+        linierMotor = binding.linierMotor
+
+
+        floatingActionButtonSimulasi = binding.floatingActionButtonSimulasi!!
+        floatingActionButtonClose = binding.floatingActionButtonClose!!
+
+
+        floatingActionButtonSimulasi.setOnClickListener {
+
+            validasi = true
+
+            if (spinnerTipeSimulasi.selectedIndex < 0) {
+                spinnerTipeSimulasi.setHintTextColor(resources.getColor(R.color.red))
+                spinnerTipeSimulasi.setHint("Silahkan pilih tipe simulasi")
+
+                spinnerTipeSimulasi.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan pilih tipe simulasi",0)
+
+                return@setOnClickListener
+
+            }
+
+
+
+            if (editTextNamaNasabah.text.toString() == "") {
+
+                editTextNamaNasabah.setError("Silahkan isi Nama Nasabah")
+                editTextNamaNasabah.setHint("Silahkan isi Nama Nasabah")
+
+                validasi = false
+
+                editTextNamaNasabah.requestFocus()
+
+                GeneralTools.toast(this,"Silahkan isi Nama Nasabah",0)
+
+                return@setOnClickListener
+            }
+
+
+            if (editTextHargaRumah.text.toString() == "") {
+
+                editTextHargaRumah.setError("Silahkan isi Harga Rumah")
+                editTextHargaRumah.setHint("Silahkan isi Harga Rumah")
+
+                editTextHargaRumah.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan isi Harga Rumah\"",0)
+
+                return@setOnClickListener
+            }
+
+
+            if (spinnerJenisKredit.selectedIndex < 0) {
+
+                spinnerJenisKredit.setHintTextColor(resources.getColor(R.color.red))
+                spinnerJenisKredit.setHint("Silahkan isi Jenis Kredit")
+
+                validasi = false
+
+                spinnerJenisKredit.requestFocus()
+
+
+                GeneralTools.toast(this,"Silahkan isi Jenis Kredit",0)
+
+                return@setOnClickListener
+            }
+
+            if (spinnerDp.selectedIndex < 0 && editTextDP.text.toString()=="") {
+                spinnerDp.setHintTextColor(resources.getColor(R.color.red))
+                spinnerDp.setHint("Silahkan Pilih DP atau isi DP")
+
+                spinnerDp.requestFocus()
+
+                validasi = false
+
+
+                GeneralTools.toast(this,"Silahkan Pilih DP atau isi DP",0)
+
+                return@setOnClickListener
+
+            }
+
+            if (editTextDP.text.toString() == "") {
+
+                editTextDP.setError("Silahkan Pilih DP atau isi DP")
+                editTextDP.setHint("Silahkan Pilih DP atau isi DP")
+
+                editTextDP.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan Pilih DP atau isi DP",0)
+
+                return@setOnClickListener
+            }
+
+            if (editTextDP.text.toString().replace("Rp ", "").replace(".", "").toDouble() >
+                editTextHargaRumah.text.toString().replace("Rp ", "").replace(".", "").toDouble()) {
+
+                editTextDP.setError("Dp tidak boleh lebih besar dari harga)")
+                editTextDP.setHint("Dp tidak boleh lebih besar dari harga")
+
+                validasi = false
+
+                editTextDP.requestFocus()
+                GeneralTools.toast(this, "Dp tidak boleh lebih besar dari harga", 0)
+                return@setOnClickListener
+            }
+
+
+            if (spinnerTenorFixed.selectedIndex < 0 ) {
+
+                spinnerTenorFixed.setHintTextColor(resources.getColor(R.color.red))
+                spinnerTenorFixed.setHint("Silahkan pilih Tenor Fixed")
+
+                spinnerTenorFixed.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan pilih Tenor Fixed",0)
+
+                return@setOnClickListener
+            }
+
+
+            if (editTextSukuBungaTenorFixed.text.toString() == "" ) {
+
+                editTextSukuBungaTenorFixed.setError("Silahkan isi Suku Bunga Tenor Fixed")
+                editTextSukuBungaTenorFixed.requestFocus()
+
+                validasi = false
+
+
+                GeneralTools.toast(this,"Silahkan isi Suku Bunga Tenor Fixed",0)
+
+                return@setOnClickListener
+            }
+
+
+            if (editTextSukuBungaTenorFixed.text.toString() != "" ) {
+
+                if (editTextSukuBungaTenorFixed.text.toString().toDouble() > 100) {
+
+                    editTextSukuBungaTenorFixed.setError("Suku bunga maksimal 100 (%)")
+                    editTextSukuBungaTenorFixed.setHint("Suku bunga maksimal 100 (%)")
+
+                    validasi = false
+
+                    editTextSukuBungaTenorFixed.requestFocus()
+                    GeneralTools.toast(this, "Suku bunga maksimal 100 (%)", 0)
+                    return@setOnClickListener
+                }
+            }
+
+
+            if (spinnerTenorFloating.selectedIndex < 0 && spinnerJenisKredit.selectedIndex==1) {
+
+                spinnerTenorFloating.setHintTextColor(resources.getColor(R.color.red))
+                spinnerTenorFloating.setHint("Silahkan pilih Tenor Floating")
+
+                spinnerTenorFloating.requestFocus()
+
+                validasi = false
+
+
+                GeneralTools.toast(this,"Silahkan pilih Tenor Floating",0)
+
+                return@setOnClickListener
+            }
+
+            if (editTextSukuBungaTenorFloating.text.toString() == "" && spinnerJenisKredit.selectedIndex==1) {
+
+                editTextSukuBungaTenorFloating.setError("Silahkan isi Suku Bunga Tenor Floating")
+                editTextSukuBungaTenorFloating.setHint("Silahkan isi Suku Bunga Tenor Floating")
+
+                editTextSukuBungaTenorFloating.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan isi Suku Bunga Tenor Floating",0)
+
+                return@setOnClickListener
+            }
+
+            if (editTextSukuBungaTenorFloating.text.toString() != "" ) {
+
+                if (editTextSukuBungaTenorFloating.text.toString().toDouble() > 100) {
+
+                    editTextSukuBungaTenorFloating.setError("Suku bunga maksimal 100 (%)")
+                    editTextSukuBungaTenorFloating.setHint("Suku bunga maksimal 100 (%)")
+
+                    validasi = false
+
+                    editTextSukuBungaTenorFloating.requestFocus()
+                    GeneralTools.toast(this, "Suku bunga maksimal 100 (%)", 0)
+                    return@setOnClickListener
+                }
+            }
+
+
+            if (editTextPremiAsuransiJiwa.text.toString() == "") {
+
+                editTextPremiAsuransiJiwa.setError("Silahkan isi Premi Asuransi Jiwa")
+                editTextPremiAsuransiJiwa.setHint("Silahkan isi Premi Asuransi Jiwa")
+
+                editTextPremiAsuransiJiwa.requestFocus()
+
+                validasi = false
+
+
+                GeneralTools.toast(this,"Silahkan isi Premi Asuransi Jiwa",0)
+
+                return@setOnClickListener
+            }
+
+
+
+            if (editTextPremiAsuransiPasangan.text.toString() == "") {
+
+                editTextPremiAsuransiPasangan.setError("Silahkan isi Premi Asuransi Jiwa")
+                editTextPremiAsuransiPasangan.setHint("Silahkan isi Premi Asuransi Jiwa")
+
+                editTextPremiAsuransiPasangan.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan isi Premi Asuransi Jiwa",0)
+
+                return@setOnClickListener
+            }
+
+
+
+
+            if (editTextPremiAsuransiKerugian.text.toString() == "") {
+
+                editTextPremiAsuransiKerugian.setError("Silahkan isi Premi Asuransi Jiwa")
+                editTextPremiAsuransiKerugian.setHint("Silahkan isi Premi Asuransi Jiwa")
+
+                editTextPremiAsuransiKerugian.requestFocus()
+
+                validasi = false
+
+
+                GeneralTools.toast(this,"Silahkan isi Premi Asuransi Jiwa",0)
+
+                return@setOnClickListener
+            }
+
+
+
+            if (editTextPPN.text.toString() == "") {
+
+                editTextPPN.setError("Silahkan isi Pajak PPN")
+                editTextPPN.setHint("Silahkan isi Pajak PPN")
+
+                editTextPPN.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan isi Pajak PPN",0)
+
+                return@setOnClickListener
+            }
+
+
+            if (editTextAdministrasi.text.toString() == "") {
+
+                editTextAdministrasi.setError("Silahkan isi Administrasi")
+                editTextAdministrasi.setHint("Silahkan isi Administrasi")
+
+                editTextAdministrasi.requestFocus()
+
+                validasi = false
+
+
+                GeneralTools.toast(this,"Silahkan isi Administrasi",0)
+
+                return@setOnClickListener
+            }
+
+
+
+            if (editTextBiayaNotaris.text.toString() == "") {
+
+                editTextBiayaNotaris.setError("Silahkan isi Biaya Notaris")
+                editTextBiayaNotaris.setHint("Silahkan isi Biaya Notaris")
+
+                editTextBiayaNotaris.requestFocus()
+
+                validasi = false
+
+                GeneralTools.toast(this,"Silahkan isi Biaya Notaris",0)
+
+                return@setOnClickListener
+            }
+
+
+
+
+            if (validasi) {
+
+
+                showInterstitial()
+
+            }
+
+        }
+
+        floatingActionButtonClose.setOnClickListener {
+
+
+            reset()
+        }
+
+
+        floatingActionButtonSave = binding.floatingActionButtonSave
+
+
+        floatingActionButtonSave.setOnClickListener {
+
+            SharedPreferencesTools.saveData(this,"spinnerTipeSimulasiKPR",
+                spinnerTipeSimulasi.selectedIndex.toString()
+            )
+
+            SharedPreferencesTools.saveData(this,"spinnerTenorFixedKPR",
+                spinnerTenorFixed.selectedIndex.toString()
+            )
+
+            SharedPreferencesTools.saveData(this,"spinnerTenorFloatingKPR",
+                spinnerTenorFloating.selectedIndex.toString()
+            )
+
+
+            SharedPreferencesTools.saveData(this,"spinnerJenisKreditKPR",
+                spinnerJenisKredit.selectedIndex.toString()
+            )
+
+
+
+            SharedPreferencesTools.saveData(this,"spinnerJenisKreditKPR",
+                spinnerJenisKredit.selectedIndex.toString()
+            )
+
+
+
+            SharedPreferencesTools.saveData(this,"spinnerDPKPR",
+                spinnerDp.selectedIndex.toString()
+            )
+
+            SharedPreferencesTools.saveData(this,"editTextHargaRumahKPR", editTextHargaRumah.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextDPKPR", editTextDP.text.toString())
+
+            SharedPreferencesTools.saveData(this,"editTextPremiAsuransiJiwaKPR", editTextSukuBungaTenorFixed.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextPremiAsuransiJiwaKPR", editTextSukuBungaTenorFloating.text.toString())
+
+            SharedPreferencesTools.saveData(this,"editTextPremiAsuransiJiwaKPR", editTextPremiAsuransiJiwa.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextPremiAsuransiKerugianKPR", editTextPremiAsuransiKerugian.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextPPNKPR", editTextPPN.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextBiayaNotarisKPR", editTextBiayaNotaris.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextAdministrasiKPR", editTextAdministrasi.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextSukuBungaTenorFloatingKPR", editTextSukuBungaTenorFloating.text.toString())
+
+            SharedPreferencesTools.saveData(this,"editTextSukuBungaTenorFixedKPR", editTextSukuBungaTenorFixed.text.toString())
+
+            SharedPreferencesTools.saveData(this,"editTextPremiAsuransiPasanganKPR", editTextPremiAsuransiPasangan.text.toString())
+            SharedPreferencesTools.saveData(this,"editTextNamaNasabahKPR", editTextNamaNasabah.text.toString())
+
+
+            Toast.makeText(
+                this,
+                "Data Berhasil disimpan!",
+                Toast.LENGTH_SHORT
+            ).show()
+
+        }
+
+
+
+
+
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun load(){
+
+
+
+        if(SharedPreferencesTools.getData(this,"spinnerTipeSimulasiKPR")!=""
+            && SharedPreferencesTools.getData(this,"spinnerTipeSimulasiKPR")!="-1") {
+
+            spinnerTipeSimulasi.selectItemByIndex(
+                SharedPreferencesTools.getData(this, "spinnerTipeSimulasiKPR")!!.toInt()
+            )
+        }  else{
+
+            reset()
+        }
+
+        if(SharedPreferencesTools.getData(this,"spinnerTenorFixedKPR")!="") {
+
+
+            if (intent.getIntExtra("tenor",0)!=0){
+                spinnerTenorFixed.selectItemByIndex(intent.getIntExtra("tenor",0)?.toInt() ?: 0)
+            }else{
+                spinnerTenorFixed.selectItemByIndex(
+                    SharedPreferencesTools.getData(this, "spinnerTenorFixedKPR")!!.toInt()
+                )
+
+            }
+
+
+
+        }
+
+        if(SharedPreferencesTools.getData(this,"spinnerTenorFloatingKPR")!="") {
+
+            spinnerTenorFloating.selectItemByIndex(
+                SharedPreferencesTools.getData(this, "spinnerTenorFloatingKPR")!!.toInt()
+            )
+        }
+
+        if(SharedPreferencesTools.getData(this,"spinnerDpKPR")!="") {
+
+            spinnerDp.selectItemByIndex(
+                SharedPreferencesTools.getData(this, "spinnerDpKPR")!!.toInt()
+            )
+        }
+
+
+        if(SharedPreferencesTools.getData(this,"spinnerJenisKreditKPR")!="") {
+
+            spinnerJenisKredit.selectItemByIndex(
+                SharedPreferencesTools.getData(this, "spinnerJenisKreditKPR")!!.toInt()
+            )
+        }
+
+
+
+        if(SharedPreferencesTools.getData(this,"editTextHargaRumahKPR")!="") {
+
+
+            if (intent.getStringExtra("plafondKredit")!=""){
+                editTextHargaRumah.setText(intent.getStringExtra("plafondKredit"))
+            }else{
+                editTextHargaRumah.setText(
+                    SharedPreferencesTools.getData(
+                        this,
+                        "editTextHargaRumahKPR"
+                    )
+                )
+            }
+
+
+        }
+
+
+
+        if(SharedPreferencesTools.getData(this,"editTextDPKPR")!="") {
+
+            editTextDP.setText(SharedPreferencesTools.getData(this, "editTextDPKPR"))
+        }
+
+
+
+        if(SharedPreferencesTools.getData(this,"editTextSukuBungaTenorFixedKPR")!="") {
+
+
+            if (intent.getStringExtra("sukuBunga")!=""){
+                editTextSukuBungaTenorFixed.setText(intent.getStringExtra("sukuBunga"))
+            }else{
+                editTextSukuBungaTenorFixed.setText(SharedPreferencesTools.getData(this, "editTextSukuBungaTenorFixedKPR"))
+
+            }
+
+        }
+
+
+
+        if(SharedPreferencesTools.getData(this,"editTextSukuBungaTenorFloatingKPR")!="") {
+
+            editTextSukuBungaTenorFloating.setText(SharedPreferencesTools.getData(this, "editTextSukuBungaTenorFloatingKPR"))
+        }
+        if(SharedPreferencesTools.getData(this,"editTextAdministrasiKPR")!="") {
+
+            editTextAdministrasi.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextAdministrasiKPR"
+                )
+            )
+        }
+
+        if(SharedPreferencesTools.getData(this,"editTextPPNKPR")!="") {
+
+            editTextPPN.setText(SharedPreferencesTools.getData(this, "editTextPPNKPR"))
+        }
+
+
+
+
+
+        if(SharedPreferencesTools.getData(this,"editTextPremiAsuransiJiwaKPR")!="") {
+
+            editTextPremiAsuransiJiwa.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextPremiAsuransiJiwaKPR"
+                )
+            )
+        }
+
+
+        if(SharedPreferencesTools.getData(this,"editTextPremiAsuransiKerugianKPR")!="") {
+
+            editTextPremiAsuransiKerugian.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextPremiAsuransiKerugianKPR"
+                )
+            )
+        }
+
+
+        if(SharedPreferencesTools.getData(this,"editTextPremiAsuransiPasanganKPR")!="") {
+
+            editTextPremiAsuransiPasangan.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextPremiAsuransiPasanganKPR"
+                )
+            )
+        }
+
+
+        if(SharedPreferencesTools.getData(this,"editTextAdministrasiKPR")!="") {
+
+            editTextAdministrasi.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextAdministrasiKPR"
+                )
+            )
+        }
+
+
+        if(SharedPreferencesTools.getData(this,"editTextBiayaNotarisKPR")!="") {
+
+            editTextBiayaNotaris.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextBiayaNotarisKPR"
+                )
+            )
+        }
+
+
+        if(SharedPreferencesTools.getData(this,"editTextNamaNasabahKPR")!="") {
+
+            editTextNamaNasabah.setText(
+                SharedPreferencesTools.getData(
+                    this,
+                    "editTextNamaNasabahKPR"
+                )
+            )
+        }
+
+    }
+
+
+    lateinit var floatingActionButtonSave: FloatingActionButton
+
+
+    lateinit var floatingActionButtonSimulasi: FloatingActionButton
+    lateinit var floatingActionButtonClose: FloatingActionButton
+
+
+    override fun onResume() {
+        Log.e("DEBUG", "OnPause of HomeFragment")
+        super.onResume()
+
+        //motionProgressLoaderView?.stopLoader()
+        if (flag) {
+
+            flag = false
+            //motionProgressLoaderView?.stopLoader()
+            //motionProgressLoaderView?.cancel()
+        }
+    }
+
+    private var flag: Boolean =false
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("ResourceAsColor", "ClickableViewAccessibility")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = HomeLoanSimulationActivityBinding.inflate(layoutInflater)
+
+
+        val view = binding.root
+
+        setContentView(view)
+
+        title = "SIMULASI KREDIT " + intent.getStringExtra("vehicle")!!.uppercase()
+        buildProgressLoader()
+        motionProgressLoaderView!!.startLoader()
+
+        bindings()
+        editTextNamaNasabah.setText(SharedPreferencesTools.getData(this,"name"))
+
+
+        editTextHargaRumah.addTextChangedListener(MoneyTextWatcher(editTextHargaRumah));
+
+        editTextBiayaNotaris.addTextChangedListener(MoneyTextWatcher(editTextBiayaNotaris));
+
+        editTextBiayaNotaris.addTextChangedListener(MoneyTextWatcher(editTextBiayaNotaris));
+        editTextAdministrasi.addTextChangedListener(MoneyTextWatcher(editTextAdministrasi));
+        editTextDP.addTextChangedListener(MoneyTextWatcher(editTextDP));
+
+        editTextPremiAsuransiJiwa.addTextChangedListener(MoneyTextWatcher(editTextPremiAsuransiJiwa));
+
+        editTextPremiAsuransiPasangan.addTextChangedListener(
+            MoneyTextWatcher(
+                editTextPremiAsuransiPasangan
+            )
+        );
+
+        editTextPremiAsuransiKerugian.addTextChangedListener(
+            MoneyTextWatcher(
+                editTextPremiAsuransiKerugian
+            )
+        );
+
+        spinnerTipeSimulasi.setOnClickListener {
+
+
+            if (!flagTipeSimulasi) {
+
+                spinnerTipeSimulasi.setTextColor(resources.getColor(R.color.blue_1))
+                spinnerTipeSimulasi.show()
+            } else {
+                spinnerTipeSimulasi.dismiss()
+            }
+
+            flagTipeSimulasi = !flagTipeSimulasi
+        }
+
+
+
+
+        spinnerJenisKredit.setOnClickListener {
+
+            if (!flagJenisKredit) {
+
+                spinnerJenisKredit.setTextColor(resources.getColor(R.color.blue_1))
+                spinnerJenisKredit.show()
+            } else {
+                spinnerJenisKredit.dismiss()
+            }
+
+            flagJenisKredit = !flagJenisKredit
+        }
+
+
+
+
+
+        spinnerDp.setOnClickListener {
+
+            spinnerDp.setTextColor(resources.getColor(R.color.blue_1))
+            if (!flagDP) {
+
+                spinnerDp.setTextColor(resources.getColor(R.color.blue_1))
+                spinnerDp.show()
+            } else {
+                spinnerDp.dismiss()
+            }
+
+            flagDP = !flagDP
+        }
+
+        spinnerTenorFixed.setOnClickListener {
+
+            spinnerTenorFixed.setTextColor(resources.getColor(R.color.blue_1))
+            if (!flagTenorFixed) {
+
+                spinnerTenorFixed.setTextColor(resources.getColor(R.color.blue_1))
+                spinnerTenorFixed.show()
+            } else {
+                spinnerTenorFixed.dismiss()
+            }
+
+            flagTenorFixed = !flagTenorFixed
+        }
+
+
+        spinnerTenorFloating.setOnClickListener {
+
+            spinnerTenorFloating.setTextColor(Color.WHITE)
+            if (!flagTenorFloating) {
+
+                spinnerTenorFloating.setTextColor(resources.getColor(R.color.blue_1))
+                spinnerTenorFloating.show()
+            } else {
+                spinnerTenorFloating.dismiss()
+            }
+
+            flagTenorFloating = !flagTenorFixed
+        }
+
+
+
+
+
+
+
+        spinnerTipeSimulasi.setOnSpinnerItemSelectedListener<String> { _, _, _, newText ->
+            spinnerTipeSimulasi.setTextColor(resources.getColor(R.color.black))
+
+
+
+
+            spinnerTipeSimulasi.setError(null)
+            spinnerTipeSimulasi.setHint("Tipe Simulasi")
+
+
+
+
+        }
+
+
+        spinnerTipeSimulasi.setOnSpinnerOutsideTouchListener { view, motionEvent ->
+
+            spinnerTipeSimulasi.dismiss()
+        }
+        spinnerJenisKredit.setOnSpinnerItemSelectedListener<String> { _, _, _, _ ->
+            spinnerJenisKredit.setTextColor(resources.getColor(R.color.black))
+            spinnerJenisKredit.setError(null)
+            spinnerJenisKredit.setHint("Jenis Kredit")
+
+
+            if(spinnerJenisKredit.selectedIndex==0){
+
+
+                showHideFloating(View.GONE)
+
+
+            }else{
+                showHideFloating(View.VISIBLE)
+            }
+
+        }
+
+
+        spinnerJenisKredit.setOnSpinnerOutsideTouchListener { view, motionEvent ->
+
+            spinnerJenisKredit.dismiss()
+        }
+
+        spinnerDp.setOnSpinnerItemSelectedListener<String> { _, _, _, _ ->
+            spinnerDp.setTextColor(resources.getColor(R.color.black))
+            spinnerDp.setError(null)
+            spinnerDp.setHint("DP")
+
+
+            if (editTextHargaRumah.text.toString()=="") {
+                editTextHargaRumah.setError("Silahkan isi Harga Rumah (Rp)")
+                editTextHargaRumah.setHint("Silahkan isi Harga Rumah (Rp)")
+
+                editTextHargaRumah.requestFocus()
+
+                spinnerDp.clearSelectedItem()
+
+                GeneralTools.toast(this, "Silahkan isi Harga Rumah (Rp)", 0)
+            }
+            else{
+
+
+                var harga = editTextHargaRumah.text.toString().replace("Rp ", "").replace(".", "").toBigDecimal()
+
+                var dp = harga* listSukuBunga[spinnerDp.selectedIndex].ParameterValue.toBigDecimal()/ BigDecimal(100)
+
+                editTextDP.setText(dp.toString())
+            }
+
+        }
+
+        spinnerDp.setOnSpinnerOutsideTouchListener { view, motionEvent ->
+
+            spinnerDp.dismiss()
+        }
+        spinnerTenorFixed.setOnSpinnerItemSelectedListener<String> { _, _, _, _ ->
+            spinnerTenorFixed.setTextColor(resources.getColor(R.color.black))
+            spinnerTenorFixed.setError(null)
+            spinnerTenorFixed.setHint("Tenor Fixed")
+
+        }
+
+        spinnerTenorFixed.setOnSpinnerOutsideTouchListener { view, motionEvent ->
+
+            spinnerTenorFixed.dismiss()
+        }
+
+
+        spinnerTenorFloating.setOnSpinnerItemSelectedListener<String> { _, _, _, _ ->
+            spinnerTenorFloating.setTextColor(resources.getColor(R.color.black))
+            spinnerTenorFloating.setError(null)
+            spinnerTenorFloating.setHint("Tenor Floating")
+
+        }
+
+
+        editTextHargaRumah.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                var harga =
+                    editTextHargaRumah.text.toString().replace("Rp ", "").replace(".", "").toBigDecimal()
+
+                if (spinnerDp.selectedIndex > -1) {
+                    var dp =
+                        harga * listSukuBunga[spinnerDp.selectedIndex].ParameterValue.toBigDecimal() / BigDecimal(100)
+
+                    editTextDP.setText(dp.toString())
+                }
+            }
+        }
+
+
+        spinnerTenorFloating.setOnSpinnerOutsideTouchListener { view, motionEvent ->
+
+            spinnerTenorFloating.dismiss()
+        }
+
+        textViewTanggalMulaiKredit.setOnClickListener {
+
+            openDatePicker()
+        }
+
+        editTextTanggalMulaiKredit.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                openDatePicker()
+            }
+        }
+
+        editTextTanggalMulaiKredit.setOnClickListener {
+
+            openDatePicker()
+        }
+
+        imageTanggalMulaiKredit.setOnClickListener {
+
+            openDatePicker()
+        }
+
+
+
+
+
+        loadAds()
+
+        val actionBar: ActionBar? = supportActionBar
+
+        // showing the back button in action bar
+
+        // showing the back button in action bar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val current = LocalDateTime.now()
+
+        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        val formatted = current.format(formatter)
+
+        editTextTanggalMulaiKredit.setText(
+            formatted
+        )
+
+        editTextNamaNasabah.setText(SharedPreferencesTools.getData(this,"name"))
+
+        loadInterstitialAd()
+
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    fun showHideFloating(flag : Int){
+
+
+        spinnerTenorFloating.visibility = flag
+        imageTenorFloating.visibility = flag
+
+        editTextSukuBungaTenorFloating.visibility= flag
+
+        textViewSukuBungaTenorFloating.visibility = flag
+        imageSukuBungaTenorFloating.visibility = flag
+    }
+
+    private lateinit var adView: AdView
+    private lateinit var adRequest: AdRequest
+
+    private fun loadAds(){
+
+        adView = binding.adView!!
+            MobileAds.initialize(this)
+
+            val testDeviceIds = listOf(
+                "A27D54F21D395038C90E85A8C00C1DBD"
+            )
+            val configuration =
+                RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+            MobileAds.setRequestConfiguration(configuration)
+
+            // on below line we are initializing
+            // our ad view with its id
+
+
+            // on below line we are
+            // initializing our ad request.
+            adRequest = AdRequest.Builder().build()
+
+            // on below line we are loading our
+            // ad view with the ad request
+            adView.loadAd(adRequest)
+
+
+            getTipeSimulasi()
+
+
+
+    }
+
+    private fun hitung(){
+        var dpIndex = spinnerDp.selectedIndex
+
+        if(dpIndex<0){
+
+            dpIndex=0
+        }
+
+        var tenoFloatingIndex =0
+
+        if(spinnerTenorFloating.selectedIndex<0){
+
+            tenoFloatingIndex=0
+        }else{
+
+            tenoFloatingIndex = listTenorFloating[ spinnerTenorFloating.selectedIndex].ParameterValue.toInt()
+        }
+
+        var sukuBungaFloating = 0.0
+
+
+        if(editTextSukuBungaTenorFloating.text.toString()!=""){
+            sukuBungaFloating =  editTextSukuBungaTenorFloating.text.toString().toDouble()
+        }
+        ActivityTools.startHomeSimulationResultActivity(
+            this,
+            spinnerTipeSimulasi.selectedIndex,
+            editTextNamaNasabah.text.toString(),
+            editTextTanggalMulaiKredit.text.toString(),
+            editTextHargaRumah.text.toString().replace("Rp ", "").replace(".", ""),
+            listJenisKredit[spinnerJenisKredit.selectedIndex].ParameterDisplay.replace(
+                "Jenis Kredit ",
+                ""
+            ),
+            listSukuBunga[dpIndex].ParameterValue.toString().toInt(),
+            editTextDP.text.toString().replace("Rp ", "").replace(".", ""),
+            editTextSukuBungaTenorFixed.text.toString().toDouble(),
+            sukuBungaFloating,
+            editTextPremiAsuransiJiwa.text.toString().replace("Rp ", "").replace(".", ""),
+            editTextPremiAsuransiPasangan.text.toString().replace("Rp ", "")
+                .replace(".", ""),
+            editTextPremiAsuransiKerugian.text.toString().replace("Rp ", "")
+                .replace(".", ""),
+
+            editTextAdministrasi.text.toString().replace("Rp ", "").replace(".", ""),
+            editTextBiayaNotaris.text.toString().replace("Rp ", "").replace(".", ""),
+            editTextPPN.text.toString().toInt(),
+            listTenorFixed[spinnerTenorFixed.selectedIndex].ParameterValue.toInt(),
+            tenoFloatingIndex
+
+        )
+
+    }
+
+    private fun openDatePicker() {
+
+        val mcurrentTime = Calendar.getInstance()
+        val year = mcurrentTime.get(Calendar.YEAR)
+        val month = mcurrentTime.get(Calendar.MONTH)
+        val day = mcurrentTime.get(Calendar.DAY_OF_MONTH)
+
+        val datePicker = DatePickerDialog(
+            this,
+            R.style.MyDatePickerStyle,
+            object : DatePickerDialog.OnDateSetListener {
+                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+
+                    editTextTanggalMulaiKredit.setText(
+                        String.format(
+                            "%d / %d / %d",
+                            dayOfMonth,
+                            month + 1,
+                            year
+                        )
+                    )
+
+                    textViewTanggalMulaiKredit.setError(null)
+                }
+            },
+            year,
+            month,
+            day
+        );
+
+        datePicker.show()
+        datePicker.getButton(DatePickerDialog.BUTTON_NEGATIVE)
+            .setTextColor(resources.getColor(R.color.blue_1))
+        datePicker.getButton(DatePickerDialog.BUTTON_POSITIVE)
+            .setTextColor(resources.getColor(R.color.blue_1))
+
+    }
+
+    private fun getTipeSimulasi() {
+
+
+        listTipeSimulasi= ArrayList<ParameterModel>()
+        listTipeSimulasi.add(ParameterModel("Tipe Simulasi Flat", "0", "tipe_simulasi_rumah"))
+        listTipeSimulasi.add(ParameterModel("Tipe Simulasi Anuitas", "1", "tipe_simulasi_rumah"))
+
+        spinnerTipeSimulasi.setItems(  listTipeSimulasi.map{listTipeSimulasi-> listTipeSimulasi.ParameterDisplay})
+
+
+            getJenisKredit()
+
+
+
+
+
+    }
+
+
+    private fun getDP() {
+
+
+
+        listSukuBunga = ArrayList<ParameterModel>()
+
+
+        for (i in 0..100) {
+            listSukuBunga.add(ParameterModel("DP $i %", i.toString(), ""))
+
+        }
+
+
+        spinnerDp.setItems(listSukuBunga.map { listSukuBunga -> listSukuBunga.ParameterDisplay })
+
+
+
+
+            getTenorFixed()
+
+    }
+
+
+    private fun getJenisKredit() {
+
+
+        listJenisKredit= ArrayList<ParameterModel>()
+        listJenisKredit.add(ParameterModel("Jenis Kredit Masa Bunga Fixed", "0", "jenis_kredit_rumah"))
+        listJenisKredit.add(ParameterModel("Jenis Kredit Masa Bunga Fixed + Bunga Floating", "1", "jenis_kredit_rumah"))
+
+        spinnerJenisKredit.setItems(  listJenisKredit.map{listJenisKredit-> listJenisKredit.ParameterDisplay})
+
+
+
+            getDP()
+
+
+    }
+
+
+    private fun getTenorFixed() {
+
+        listTenorFixed = ArrayList<ParameterModel>()
+
+
+        for (i in 0..300 step 12) {
+            listTenorFixed.add(ParameterModel("Tenor $i Bulan", i.toString(), ""))
+
+        }
+
+        spinnerTenorFixed.setItems(listTenorFixed.map { listTenorFixed -> listTenorFixed.ParameterDisplay })
+
+
+
+            getTenorFloating()
+
+
+
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getTenorFloating() {
+
+        listTenorFloating = ArrayList<ParameterModel>()
+
+
+        for (i in 0..300 step 12) {
+            listTenorFloating.add(ParameterModel("Tenor $i Bulan", i.toString(), ""))
+
+        }
+            spinnerTenorFloating.setItems(listTenorFloating.map { listTenorFloating -> listTenorFloating.ParameterDisplay })
+
+
+        setHint()
+            load()
+
+            flag = true
+            motionProgressLoaderView!!.stopLoader()
+
+
+    }
+
+
+
+    private fun setHint(){
+
+        spinnerTipeSimulasi.setHint("Tipe Simulasi")
+        editTextAdministrasi.setHint("Rp 0")
+
+        spinnerJenisKredit.setHint("Jenis Kredit")
+
+        spinnerDp.setHint("Dp (%)")
+        spinnerTenorFixed.setHint("Tenor Fixed (Bulan)")
+        spinnerTenorFloating.setHint("Tenor Floating (Bulan)")
+
+
+        editTextDP.setText("10%")
+
+
+        editTextPremiAsuransiJiwa.setHint("Rp 0")
+        editTextPremiAsuransiKerugian.setHint("Rp 0")
+        editTextBiayaNotaris.setHint("Rp 0")
+        editTextPremiAsuransiKerugian.setHint("Rp 0")
+        editTextPremiAsuransiPasangan.setHint("Rp 0")
+        editTextAdministrasi.setHint("Rp 0")
+
+        editTextSukuBungaTenorFixed.setHint("7.5")
+        editTextSukuBungaTenorFloating.setHint("13.25")
+        editTextHargaRumah.setHint("Rp. 500.000.000")
+
+        editTextPPN.setHint("10")
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun reset() {
+
+
+        showHideFloating(View.GONE)
+
+        editTextNamaNasabah.setText(SharedPreferencesTools.getData(this,"name"))
+
+        spinnerTipeSimulasi.clearSelectedItem()
+        editTextAdministrasi.setText("Rp 0")
+
+        spinnerJenisKredit.clearSelectedItem()
+
+        spinnerDp.clearSelectedItem()
+        spinnerTenorFixed.clearSelectedItem()
+        spinnerTenorFloating.clearSelectedItem()
+
+        spinnerJenisKredit.setHintTextColor(resources.getColor(R.color.black))
+        spinnerDp.setHintTextColor(resources.getColor(R.color.black))
+        spinnerTenorFixed.setHintTextColor(resources.getColor(R.color.black))
+        spinnerTenorFloating.setHintTextColor(resources.getColor(R.color.black))
+
+
+        spinnerTipeSimulasi.setHintTextColor(resources.getColor(R.color.black))
+
+        editTextDP.setText("")
+
+
+        editTextPremiAsuransiJiwa.setText("")
+        editTextPremiAsuransiKerugian.setText("")
+        editTextBiayaNotaris.setText("")
+        editTextPremiAsuransiKerugian.setText("")
+        editTextPremiAsuransiPasangan.setText("")
+        editTextAdministrasi.setText("")
+
+
+
+        if (intent.getIntExtra("tenor",0)!=0){
+            spinnerTenorFixed.selectItemByIndex(intent.getIntExtra("tenor",0))
+        }
+
+
+        if (intent.getDoubleExtra("sukuBunga",0.0)!=0.0){
+            editTextSukuBungaTenorFixed.setText(intent.getDoubleExtra("sukuBunga",0.0).toString())
+        }else{
+            editTextSukuBungaTenorFixed.setText("")
+        }
+
+        if (intent.getStringExtra("plafondKredit")!=""){
+            editTextHargaRumah.setText(intent.getStringExtra("plafondKredit"))
+        }else{
+            editTextHargaRumah.setText("")
+        }
+        editTextSukuBungaTenorFloating.setText("")
+
+
+
+
+        editTextPPN.setText("")
+
+
+
+        val current = LocalDateTime.now()
+
+        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        val formatted = current.format(formatter)
+
+        editTextTanggalMulaiKredit.setText(
+            formatted
+        )
+
+
+
+        SharedPreferencesTools.saveData(this,"spinnerTipeSimulasiKPR",
+          "-1"
+        )
+
+        SharedPreferencesTools.saveData(this,"spinnerTenorFixedKPR",
+            "-1"
+        )
+
+        SharedPreferencesTools.saveData(this,"spinnerTenorFloatingKPR",
+            "-1"
+        )
+
+
+        SharedPreferencesTools.saveData(this,"spinnerJenisKreditKPR",
+            "-1"
+        )
+
+
+
+        SharedPreferencesTools.saveData(this,"spinnerJenisKreditKPR",
+            "-1"
+        )
+
+
+
+        SharedPreferencesTools.saveData(this,"editTextHargaRumahKPR", "")
+        SharedPreferencesTools.saveData(this,"editTextDPKPR", "")
+
+        SharedPreferencesTools.saveData(this,"editTextPremiAsuransiJiwaKPR","")
+        SharedPreferencesTools.saveData(this,"editTextPremiAsuransiJiwaKPR", "")
+
+        SharedPreferencesTools.saveData(this,"editTextPremiAsuransiJiwaKPR", "")
+        SharedPreferencesTools.saveData(this,"editTextPremiAsuransiKerugianKPR","")
+        SharedPreferencesTools.saveData(this,"editTextPPNKPR", "")
+        SharedPreferencesTools.saveData(this,"eeditTextBiayaNotarisKPR", "")
+        SharedPreferencesTools.saveData(this,"editTextAdministrasiKPR","")
+
+        SharedPreferencesTools.saveData(this,"editTextNamaNasabahKPR", "")
+
+        setHint()
+
+    }
+
+    private var interstitialAd: InterstitialAd? = null
+
+    private fun loadInterstitialAd() {
+        val testDeviceIds = listOf(
+            "A27D54F21D395038C90E85A8C00C1DBD"
+        )
+        val configuration =
+            RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+        MobileAds.setRequestConfiguration(configuration)
+
+
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(this, getString(R.string.interstitial_ad_unit_id), adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdLoaded(ad: InterstitialAd) {
+                    // The interstitialAd reference will be null until
+                    // an ad is loaded.
+                    interstitialAd = ad
+
+                    ad.setFullScreenContentCallback(
+                        object : FullScreenContentCallback() {
+                            override fun onAdDismissedFullScreenContent() {
+                                // Called when fullscreen content is dismissed.
+                                // Make sure to set your reference to null so you don't
+                                // show it a second time.
+                                interstitialAd = null
+                                Log.d(title.toString(), "The ad was dismissed.")
+
+
+                                motionProgressLoaderView!!.startLoader()
+                                loadInterstitialAd()
+                                hitung()
+                            }
+
+                            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                                // Called when fullscreen content failed to show.
+                                // Make sure to set your reference to null so you don't
+                                // show it a second time.
+                                interstitialAd = null
+                                Log.d(title.toString(), "The ad failed to show.")
+
+                                hitung()
+                            }
+
+                            override fun onAdShowedFullScreenContent() {
+                                // Called when fullscreen content is shown.
+                                Log.d(title.toString(), "The ad was shown.")
+
+                                motionProgressLoaderView!!.startLoader()
+                            }
+
+
+                        })
+                }
+
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    // Handle the error
+                    Log.i(title.toString(), loadAdError.message)
+                    interstitialAd = null
+
+                    val error: String = String.format(
+                        Locale.ENGLISH,
+                        "domain: %s, code: %d, message: %s",
+                        loadAdError.domain,
+                        loadAdError.code,
+                        loadAdError.message
+                    )
+
+                }
+            })
+
+
+        getTipeSimulasi()
+    }
+
+    private fun showInterstitial() {
+        // Show the ad if it"s ready. Otherwise toast and reload the ad.
+
+
+
+            if (interstitialAd != null) {
+                interstitialAd!!.show(this)
+            } else {
+                hitung()
+            }
+
+    }
+}

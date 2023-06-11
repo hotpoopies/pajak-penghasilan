@@ -1,0 +1,87 @@
+package com.ukm.simulasikredit
+
+import android.content.ComponentName
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.telephony.TelephonyManager
+import android.view.WindowManager
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
+import com.ukm.simulasikredit.tools.ActivityTools
+import java.util.*
+
+
+class SplashScreen : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash_screen)
+
+        val title = findViewById<TextView>(R.id.textView2)
+
+        val img = findViewById<ImageView>(R.id.imageView2)
+
+
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
+
+        val tm = this.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
+        val countryCodeValue = tm.networkCountryIso
+        if(countryCodeValue.uppercase()=="ID"){
+
+           newicon()
+
+            title.text ="Loan Calculator"
+			
+			  img.setImageDrawable(
+                ResourcesCompat.getDrawable(img.resources,  R.drawable.appen, null)
+            )
+
+        }else{
+
+            changeicon()
+        }
+
+
+        // we used the postDelayed(Runnable, time) method
+        // to send a message with a delayed time.
+        //Normal Handler is deprecated , so we have to change the code little bit
+
+        // Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
+            ActivityTools.startAppVersionActivity(this)
+            finish()
+        }, 2000) // 3000 is the delayed time in milliseconds.
+    }
+
+    private fun changeicon() {
+
+        // enable old icon
+        packageManager.setComponentEnabledSetting(ComponentName(this@SplashScreen, com.ukm.simulasikredit.SplashScreen::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP)
+        packageManager.setComponentEnabledSetting(ComponentName(this@SplashScreen, com.ukm.simulasikredit.SplashScreenAlias1::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,PackageManager.DONT_KILL_APP)
+        packageManager.setComponentEnabledSetting(ComponentName(this@SplashScreen, com.ukm.simulasikredit.SplashScreenAlias2::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP)
+
+
+    }
+
+    private fun newicon() {
+        packageManager.setComponentEnabledSetting(ComponentName(this@SplashScreen, com.ukm.simulasikredit.SplashScreen::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP)
+        packageManager.setComponentEnabledSetting(ComponentName(this@SplashScreen, com.ukm.simulasikredit.SplashScreenAlias1::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP)
+        packageManager.setComponentEnabledSetting(ComponentName(this@SplashScreen, com.ukm.simulasikredit.SplashScreenAlias2::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,PackageManager.DONT_KILL_APP)
+
+    }
+}
